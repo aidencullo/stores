@@ -1,28 +1,17 @@
-// store.js
-import { createStore } from 'vuex';
+// store/index.js
+import { defineStore } from 'pinia';
 
-const store = createStore({
-  state() {
-    return {
-      count: 0,
-      name: 'i am vuex',
-    };
-  },
-  mutations: {
-    increment(state) {
-      state.count++;
-    }
+export const useCounterStore = defineStore('counter', {
+  state: () => ({
+    count: 0,
+    version: '1',
+  }),
+  getters: {
+    doubleCount: (state) => state.count * 2
   },
   actions: {
-    increment({ commit }) {
-      commit('increment');
-    }
-  },
-  getters: {
-    doubleCount(state) {
-      return state.count * 2;
+    increment() {
+      this.count++;
     }
   }
 });
-
-export default store;

@@ -2,32 +2,32 @@
   <div>
     <p>{{ count }}</p>
     <p>{{ doubleCount }}</p>
-    <p>{{ name }}</p>
+    <p>{{ version }}</p>
     <button @click="increment">Increment</button>
   </div>
 </template>
 
 <script>
 import { computed } from 'vue';
-import { useStore } from 'vuex';
+import { useCounterStore } from '../store';
 
 export default {
   setup() {
-    const store = useStore();
+    const counterStore = useCounterStore();
 
-    const count = computed(() => store.state.count);
-    const doubleCount = computed(() => store.getters.doubleCount);
-    const name = computed(() => store.state.name);
+    const count = computed(() => counterStore.count);
+    const version = computed(() => counterStore.version);
+    const doubleCount = computed(() => counterStore.doubleCount);
 
     const increment = () => {
-      store.dispatch('increment');
+      counterStore.increment();
     };
 
     return {
       count,
-      name,
+      version,
       doubleCount,
-      increment,
+      increment
     };
   }
 };
