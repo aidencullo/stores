@@ -1,56 +1,34 @@
 <template>
   <div>
-    <p>Current count: {{ count }}</p>
+    <p>{{ count }}</p>
+    <p>{{ doubleCount }}</p>
+    <p>{{ name }}</p>
     <button @click="increment">Increment</button>
-    <button @click="reset">Reset</button>
   </div>
 </template>
 
 <script>
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+
 export default {
-  // Component name
-  name: 'CounterComponent',
+  setup() {
+    const store = useStore();
 
-  // Data option
-  data() {
-    return {
-      count: 0,
+    const count = computed(() => store.state.count);
+    const doubleCount = computed(() => store.getters.doubleCount);
+    const name = computed(() => store.state.name);
+
+    const increment = () => {
+      store.dispatch('increment');
     };
-  },
 
-  // Methods option
-  methods: {
-    increment() {
-      this.count++;
-    },
-    reset() {
-      this.count = 0;
-    },
-  },
-
-  // Lifecycle hook
-  mounted() {
-    console.log('CounterComponent has been mounted!');
-  },
-
-  // Watchers
-  watch: {
-    count(newValue, oldValue) {
-      console.log(`Count changed from ${oldValue} to ${newValue}`);
-    },
-  },
-
-  // Computed properties
-  computed: {
-    doubleCount() {
-      return this.count * 2;
-    },
-  },
+    return {
+      count,
+      name,
+      doubleCount,
+      increment,
+    };
+  }
 };
 </script>
-
-<style scoped>
-button {
-  margin-right: 10px;
-}
-</style>
