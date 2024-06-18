@@ -1,10 +1,10 @@
 <!-- src/App.vue -->
 <template>
   <div id="app">
-    <Counter />
+    <HelloWorld msg="Hello Vue 3 + Vite" />
   </div>
 </template>
 
 <script setup>
-  import Counter from './components/Counter.vue';
+import HelloWorld from './components/HelloWorld.vue'
 </script>
