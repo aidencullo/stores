@@ -1,0 +1,6 @@
+  /Users/aiden/Test/vue/vue-project/src/components:
+C -rw-r--r--  1 aiden  staff  387 Jun 17 12:28 Counter.vue
+  -rw-r--r--  1 aiden  staff   700 Jun 17 11:28 HelloWorld.vue
+  -rw-r--r--  1 aiden  staff  3282 Jun 17 11:28 TheWelcome.vue
+  -rw-r--r--  1 aiden  staff  1414 Jun 17 11:28 WelcomeItem.vue
+  drwxr-xr-x  7 aiden  staff   224 Jun 17 11:28 icons
