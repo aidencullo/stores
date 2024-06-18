@@ -1,7 +1,7 @@
 <!-- src/App.vue -->
 <template>
   <div id="app">
-    <HelloWorld msg="Hello Vue 3 + Vite" />
+    <HelloWorld />
   </div>
 </template>
 
